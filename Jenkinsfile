@@ -1,15 +1,21 @@
 pipeline {
   agent any
   stages {
-    stage('Checkout Scm') {
+    stage('Get Git Files') {
       steps {
         git branch: 'main', url: 'https://github.com/henriquewrf/trabalho5'
       }
     }
 
-    stage('Batch script 0') {
+    stage('Buld') {
       steps {
         bat 'mvn -D maven.test.failure.ignore=true clean package'
+      }
+    }
+
+    stage('Test') {
+      steps {
+        bat 'mvn test -f pom.xml'
       }
     }
 
