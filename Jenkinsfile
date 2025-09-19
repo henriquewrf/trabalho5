@@ -18,12 +18,6 @@ pipeline {
         bat 'mvn test -f pom.xml'
       }
     }
-
-    stage('Deploy') {
-      steps {
-        bat 'mvn deploy -f pom.xml'
-      }
-    }
-
+  
   }
 }
