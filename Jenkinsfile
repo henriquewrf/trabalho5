@@ -11,7 +11,10 @@ pipeline {
             steps {
 
                 echo 'Bulding..'
-              
+
+                // Get some code from a GitHub repository
+                git branch: 'main', url: 'https://github.com/henriquewrf/trabalho5'
+
                 // Run Maven on a Unix agent.
                 sh "mvn -D maven.test.failure.ignore=true clean package"
             }
